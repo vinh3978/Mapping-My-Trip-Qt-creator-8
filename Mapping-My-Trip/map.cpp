@@ -6,6 +6,8 @@ map::map(QWidget *parent) :
     ui(new Ui::map)
 {
     ui->setupUi(this);
+    ui->quickWidget->setSource(QUrl(QStringLiteral("qrc:/map.qml")));
+    ui->quickWidget->show();
 }
 
 map::~map()

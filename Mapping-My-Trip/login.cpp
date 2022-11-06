@@ -1,7 +1,8 @@
 #include "login.h"
 #include "ui_login.h"
-#include <QApplication>d
+#include <QApplication>
 #include <QMessageBox>
+#include <map.h>
 
 login::login(QWidget *parent) :
     QDialog(parent),
@@ -20,9 +21,11 @@ void login::on_pushButton_login_clicked()
     QString username = ui->lineEdit_username->text();
     QString password = ui->lineEdit_password->text();
 
+    //CHECK USERNAME AND PASSWORD CORRECT
     if (username == "admin" && password=="admin") {
         hide();
         QMessageBox::information(this,"Login","Loggin successfully");
+        //OPEN MAP
         map = new class map(this);
         map->show();
     } else {
