@@ -6,7 +6,7 @@ map::map(QWidget *parent) :
     ui(new Ui::map)
 {
     ui->setupUi(this);
-    ui->quickWidget->setSource(QUrl(QStringLiteral("qrc:/map.qml")));
+    ui->quickWidget->setSource(QUrl(QStringLiteral("qrc:/map.qml"))); //Show map in London ON, more info in Resources/qml.qrc//map.qml
     ui->quickWidget->show();
 }
 

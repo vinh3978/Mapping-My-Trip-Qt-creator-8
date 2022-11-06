@@ -11,19 +11,19 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Mapping My Trip - Login</string>
   </property>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>30</y>
-     <width>246</width>
-     <height>143</height>
+     <x>70</x>
+     <y>40</y>
+     <width>241</width>
+     <height>181</height>
     </rect>
    </property>
    <property name="title">
-    <string>GroupBox</string>
+    <string/>
    </property>
    <layout class="QFormLayout" name="formLayout_2">
     <item row="0" column="0">
@@ -64,6 +64,9 @@
        <widget class="QPushButton" name="pushButton_login">
         <property name="text">
          <string>Login</string>
+        </property>
+        <property name="default">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
