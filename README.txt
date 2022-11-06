@@ -6,3 +6,6 @@ To run the program:
 3. After installing, open QT creator
 4. Open Project -> Mapping-My-Trip -> Mapping-My-Trip.pro
 5. Now you can run the app
+
+Username: admin
+Pass: admin
