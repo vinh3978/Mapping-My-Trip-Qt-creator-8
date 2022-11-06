@@ -5,7 +5,7 @@ To run the program:
 2. Install QT Creator 8 and QT 5.15.x
 3. After installing, open QT creator
 4. Open Project -> Mapping-My-Trip -> Mapping-My-Trip.pro
-5. Now you can run the app
+5. Configure and you can run the app
 
 Username: admin
 Pass: admin
