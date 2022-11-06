@@ -1,5 +1,6 @@
 #include <QApplication>
 #include <QPushButton>
+#include <QQmlContext>
 #include "login.h"
 
 int main(int argc, char**argv)

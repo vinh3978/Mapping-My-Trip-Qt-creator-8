@@ -1,6 +1,6 @@
 TARGET = Mapping-My-Trip
 QT = core gui
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets quickwidgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets quickwidgets positioning
 CONFIG+=sdk_no_version_check
 
 HEADERS += \
