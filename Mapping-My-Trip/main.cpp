@@ -1,15 +1,13 @@
 #include <QApplication>
-#include <QPushButton>
-#include <QQmlContext>
-#include "login.h"
+
+#include "logindialog.h"
 
 int main(int argc, char**argv)
 {
     QApplication app(argc,argv);
 
-    //open loggin panel ->codes in login.cpp
-    login login;
-    login.show();
+    LoginDialog dialog;
+    dialog.show();
     return app.exec();
 }
 

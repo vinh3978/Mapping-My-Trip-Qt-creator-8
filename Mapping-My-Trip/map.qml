@@ -1,57 +1,67 @@
 import QtQuick 2.0
-import QtQuick.Controls 2.12
-import QtQuick.Window 2.14
 import QtLocation 5.6
 import QtPositioning 5.6
 
-Rectangle {
-    visible: true
-    property double latitude;
-    property double longitude;
+Rectangle{
+    id: window
+    property double oldLat: 42.984908
+    property double oldLng: -81.245303
+    property Component comMarker: mapMarker
 
-    Plugin {
-        id: mapPlugin
-        name: "osm"
+    Plugin{
+        id:mapPlugin
+        name:"osm"
     }
 
     Map {
-        id: map
+        id: mapView
         anchors.fill: parent
-        plugin: mapPlugin
-        center: QtPositioning.coordinate(42.9869327419883, -81.24889385852319); //London, ON
-        zoomLevel: 15
+        plugin:mapPlugin
+        center: QtPositioning.coordinate(oldLat, oldLng);
+        zoomLevel: 10
 
-        MapItemView{
-            model: pinModel
-            delegate: pinComponent
-        }
-    }
+        MouseArea {
+            anchors.fill: parent
+            onPressAndHold: {
+                var crd = mapView.toCoordinate(Qt.point(mouseX, mouseY))
+                console.log(crd.latitude, crd.longitude, crd.altitude);
 
-  /*  MouseArea{
-        anchors.fill: parent
-
-        onDoubleClicked: {
-            var position = mapView.toCoordinate(Qt.point(mouse.x,mouse.y))
-            latitude= position.latitude;
-            longitude= position.longitude;
-        }
-    } */
-
-    Component {
-        id: pinComponent
-        MapQuickItem{
-            id: marker
-            anchorPoint.x: image.width/2
-            anchorPoint.y: image.height
-            coordinate: QtPositioning.coordinate(42.9869327419883, -81.24889385852319);
-
-            sourceItem: Image{
-                id: image
-                source: "qrc:/map_pin.png"
+                onAddPoint(crd.latitude, crd.longitude);
             }
         }
     }
 
+    signal onAddPoint(var latitude, var longitude);
+
+    signal onPointClicked(var pointId);
+
+    function doAddPoint(pointId, latitude, longitude) {
+        var item = comMarker.createObject(window, {  coordinate: QtPositioning.coordinate(latitude, longitude), pointId:pointId  })
+        mapView.addMapItem(item)
+    }
+
+    Component {
+            id: mapMarker
+            MapQuickItem {
+                id: markerImg
+                anchorPoint.x: image.width/4
+                anchorPoint.y: image.height
+                coordinate: position
+                property int pointId: -1
+
+                sourceItem: Image {
+                    id: image
+                    source: "qrc:/map_pin.png"
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            onPointClicked(pointId);
+                        }
+                    }
+                }
+            }
+        }
 
 
 }

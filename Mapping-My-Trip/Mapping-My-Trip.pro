@@ -1,21 +1,34 @@
 TARGET = Mapping-My-Trip
-QT = core gui
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets quickwidgets positioning
-CONFIG+=sdk_no_version_check
+QT = core gui sql
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets quickwidgets
+CONFIG+= c++11
 
 HEADERS += \
-    login.h \
-    main.h \
-    map.h
+    dbhelper.h \
+    logindialog.h \
+    mapdialog.h \
+    picturedialog.h \
+    pictureentity.h \
+    pointentity.h \
+    registerdialog.h \
+    userentity.h
 
 SOURCES += \
-    login.cpp \
+    dbhelper.cpp \
+    logindialog.cpp \
     main.cpp \
-    map.cpp
+    mapdialog.cpp \
+    picturedialog.cpp \
+    pictureentity.cpp \
+    pointentity.cpp \
+    registerdialog.cpp \
+    userentity.cpp
 
 FORMS += \
-    login.ui \
-    map.ui
+    logindialog.ui \
+    mapdialog.ui \
+    picturedialog.ui \
+    registerdialog.ui
 
 RESOURCES += \
     qml.qrc
