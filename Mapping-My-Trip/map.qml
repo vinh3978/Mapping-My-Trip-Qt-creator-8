@@ -28,6 +28,13 @@ Rectangle{
 
                 onAddPoint(crd.latitude, crd.longitude);
             }
+
+            onDoubleClicked: {
+                var crd = mapView.toCoordinate(Qt.point(mouseX, mouseY))
+                console.log(crd.latitude, crd.longitude, crd.altitude);
+
+                onAddPoint(crd.latitude, crd.longitude);
+            }
         }
     }
 
